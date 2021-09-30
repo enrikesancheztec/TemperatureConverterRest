@@ -2,16 +2,33 @@ package mx.tec.mobile.lab.model.vo;
 
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Temperature {
+	@Id
+	@GeneratedValue	
+	private long id;	
 	private float value;
 	private Unit unit;
 	
 	public Temperature() {
 	}
 	
-	public Temperature(float value, Unit unit) {
+	public Temperature(long id, float value, Unit unit) {
+		this.id = id;
 		this.value = value;
 		this.unit = unit;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public float getValue() {

@@ -1,29 +1,24 @@
 package mx.tec.mobile.lab.model.manager;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import mx.tec.mobile.lab.TemperatureConversionRepository;
 import mx.tec.mobile.lab.model.vo.TemperatureConversion;
 
 @Service
 public class TemperatureManager {
-	private List<TemperatureConversion> history;
-	
-	public TemperatureManager() {
-		history = new ArrayList<>();
-	}
+	@Resource
+	TemperatureConversionRepository repository;
 
 	public List<TemperatureConversion> getHistory() {
-		return history;
+		return repository.findAll();
 	}
 
-	public void setHistory(List<TemperatureConversion> history) {
-		this.history = history;
-	}
-	
 	public void addConversionToHistory(TemperatureConversion conversion) {
-		this.history.add(conversion);
+		repository.save(conversion);
 	}	
 }

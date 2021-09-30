@@ -25,7 +25,7 @@ public class TemperatureConversionController {
 	@PostMapping("/temperature/conversion/fahrenheit")
 	public Temperature getFarenheitConversion(@RequestBody Temperature temperature) {
 		Temperature converted = converter.convert(temperature, Temperature.Unit.FAHRENHEIT);				
-		manager.addConversionToHistory(new TemperatureConversion(Calendar.getInstance(), temperature, converted));		
+		manager.addConversionToHistory(new TemperatureConversion(0, Calendar.getInstance(), temperature, converted));		
 		return converted;
 	}
 	

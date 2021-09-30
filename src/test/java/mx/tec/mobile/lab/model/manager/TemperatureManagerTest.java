@@ -17,9 +17,10 @@ class TemperatureManagerTest {
 		
 		// When
 		TemperatureConversion conversion = new TemperatureConversion(
+				0,
 				Calendar.getInstance(), 
-				new Temperature(0, Temperature.Unit.CELSIUS), 
-				new Temperature(32, Temperature.Unit.FAHRENHEIT));
+				new Temperature(0, 0, Temperature.Unit.CELSIUS), 
+				new Temperature(0, 32, Temperature.Unit.FAHRENHEIT));
 		manager.addConversionToHistory(conversion); 
 		
 		// Then
